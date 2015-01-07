@@ -1,0 +1,88 @@
+// ---------------------------------------------------------------------------
+//  CSS OUTPUT
+//  The rendered CSS when compiled. Makes use of the mixins defined above.
+// ---------------------------------------------------------------------------
+
+/* -- Background -- */
+
+.wj-content:not(.customEdit) {
+	.mixin-contrast(@background);
+	.mixin-grad-background(@background);
+}
+
+.wj-listbox-item:not(.wj-state-selected):hover {
+	.mixin-contrast-overlay(@background);
+}
+
+.wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+	.mixin-contrast-overlay(@background)
+}
+
+/* -- Header -- */
+
+.wj-header {
+	.mixin-contrast(@header);
+	.mixin-grad-header(@header);
+}
+
+.wj-flexgrid .wj-group {
+	.mixin-contrast-group(@header);
+}
+
+/* -- Grid -- */
+
+div[wj-part='root'] {
+	background: @background-dark;
+}
+
+div[wj-part='cells'] {
+	.mixin-contrast(@background);
+	.mixin-grad-background(@background);
+}
+
+.wj-state-selected {
+	.mixin-contrast(@primary);
+}
+
+.wj-state-multi-selected {
+	.mixin-contrast-multi(@primary);
+}
+
+.wj-input-group .wj-form-control, .wj-grid-editor {
+	background: #fff;
+	color: @text-dark;
+}
+
+div[wj-part='rhcells'] .wj-header {
+	.mixin-grid-right-bg();
+}
+
+.wj-cell {
+	.mixin-grid-cell-border();
+}
+
+/* -- Buttons -- */
+
+.wj-content:not(.customEdit) .wj-input-group-btn > .wj-btn, .wj-content:not(.customEdit) .wj-btn-group > .wj-btn {
+	.mixin-contrast(@button);
+	.mixin-grad-button(@button);
+}
+
+.wj-content:not(.customEdit) .wj-input-group-btn > .wj-btn:hover, .wj-content:not(.customEdit) .wj-btn-group > .wj-btn:hover {
+	.mixin-contrast-hover(@button);
+}
+
+/* -- Border Radii -- */
+
+.wj-content, .wj-input-group, .wj-btn-group, .wj-btn-group-vertical, .wj-tooltip, .customEdit {
+	border-radius: @border-radius;
+}
+
+/* -------------------- Tooltip -------------------- */
+
+.wj-tooltip {
+	background: @tool-tip;
+	.mixin-contrast-tooltip(@tool-tip);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+

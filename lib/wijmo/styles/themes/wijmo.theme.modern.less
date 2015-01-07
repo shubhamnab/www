@@ -1,0 +1,38 @@
+
+// ---------------------------------------------------------------------------
+//  BASE THEME COLORS & STYLES
+//  Defines colors to be used in the theme.  There is also a global 
+//  border-radius setting and gradients can be turned on or off using
+//  the '-grad' variables.  
+//
+//  Edit this section only.
+// ---------------------------------------------------------------------------
+
+@background: #ffffff;
+@header: #8bc730;
+@primary: #29a3cc;
+@text: #333333;
+@button: #29a3cc;
+@tool-tip: #f6f6d4;
+
+@grid-cell-border: false; // If 'false' will remove all grid borders
+@grid-right-side-col: #e3e5e1; // If a color value (HEX, RGB, NAME) will set background color for right column of grid
+
+@border-radius: 0px; // Sets global border radius for controls
+
+@background-grad: false; // If 'true' will render background with gradient
+@button-grad: false; // if 'true' will render buttons with gradient
+@header-grad: false; // if 'true' will render grid headers with gradient
+
+
+
+// ---------------------------------------------------------------------------
+//  IMPORT EXTERNAL FILES
+// ---------------------------------------------------------------------------
+
+
+@import "mixins/color-functions";
+@import "mixins/guards";
+@import "mixins/styles";
+@import "mixins/chart";
+

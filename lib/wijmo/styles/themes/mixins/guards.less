@@ -1,0 +1,96 @@
+// ---------------------------------------------------------------------------
+//  MIXIN GUARDS
+//  Designed to ensure contrast.  These change background and/or text
+//  colors based on the brightness of the selected colors set above.  
+//  For example, areas with dark background colors will always have lighter 
+//  text and vice-versa.
+// ---------------------------------------------------------------------------
+
+.mixin-contrast(@color-value) when ( lightness(@color-value) >= 50% ) { 
+	background: @color-value; color: @text; 
+}
+.mixin-contrast(@color-value) when ( lightness(@color-value) < 50% )  { 
+	background: @color-value; color: @text-light; 
+}
+.mixin-contrast-overlay(@color-value) when ( lightness(@color-value) >= 50% ) { 
+	background: rgba(0, 0, 0, 0.04); 
+}
+.mixin-contrast-overlay(@color-value) when ( lightness(@color-value) < 50% ) and ( lightness(@color-value) >= 10% ) { 
+	background: rgba(255, 255, 255, 0.05); 
+}
+.mixin-contrast-overlay(@color-value) when ( lightness(@color-value) < 10% ) { 
+	background: rgba(255, 255, 255, 0.5); 
+}
+.mixin-contrast-group(@color-value) when ( lightness(@color-value) >= 80% ) { 
+	background: @header-dark; color: @text; 
+}
+.mixin-contrast-group(@color-value) when ( lightness(@color-value) < 80% ) and ( lightness(@color-value) >= 30% ) { 
+	background: @header-light; color: @text; 
+}
+.mixin-contrast-group(@color-value) when ( lightness(@color-value) < 30% ) { 
+	background: @header-very-light; color: @text-dark; 
+}
+.mixin-contrast-multi(@color-value) when ( lightness(@color-value) >= 50% ){ 
+	background: @primary-dark; color: @text-light; 
+}
+.mixin-contrast-multi(@color-value) when ( lightness(@color-value) < 50% ){ 
+	background: @primary-light; color: @text; 
+}
+.mixin-contrast-hover(@color-value) when ( lightness(@color-value) >= 50% ) { 
+	background: @button-dark; 
+}
+.mixin-contrast-hover(@color-value) when ( lightness(@color-value) < 50% ) { 
+	background: @button-light; 
+}
+.mixin-contrast-gridroot(@color-value) when ( lightness(@color-value) >= 90% ){ 
+	background: @background-dark;
+}
+.mixin-contrast-gridroot(@color-value) when ( lightness(@color-value) < 90% ){ 
+	background: @background-light; 
+}
+.mixin-contrast-tooltip(@color-value) when ( lightness(@color-value) >= 50% ){ 
+	color: @text-dark; 
+}
+.mixin-contrast-tooltip(@color-value) when ( lightness(@color-value) < 50% ){ 
+	color: @text; 
+}
+.dark-grad(@color-value) {
+	background-image: -ms-linear-gradient(bottom, darken(@color-value, 10%) 0%, @color-value 100%);
+	background-image: -moz-linear-gradient(bottom, darken(@color-value, 10%) 0%, @color-value 100%);
+	background-image: -o-linear-gradient(bottom, darken(@color-value, 10%) 0%, @color-value 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, darken(@color-value, 10%)), color-stop(1, @color-value));
+	background-image: -webkit-linear-gradient(bottom, darken(@color-value, 10%) 0%, @color-value 100%);
+	background-image: linear-gradient(to top, darken(@color-value, 10%) 0%, @color-value 100%);
+}
+.light-grad(@color-value) {
+	background-image: -ms-linear-gradient(bottom, @color-value 0%, lighten(@color-value, 10%) 100%);
+	background-image: -moz-linear-gradient(bottom, @color-value 0%, lighten(@color-value, 10%) 100%);
+	background-image: -o-linear-gradient(bottom, @color-value 0%, lighten(@color-value, 10%) 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, @color-value), color-stop(1, lighten(@color-value, 10%)));
+	background-image: -webkit-linear-gradient(bottom, @color-value 0%, lighten(@color-value, 10%) 100%);
+	background-image: linear-gradient(to top, @color-value 0%, lighten(@color-value, 10%) 100%);
+}
+.mixin-grad-background(@color-value) when (@background-grad = true) and ( lightness(@color-value) >= 50% ) { 
+	.dark-grad(@color-value); 
+}
+.mixin-grad-background(@color-value) when (@background-grad = true) and ( lightness(@color-value) < 50% ) { 
+	.light-grad(@color-value); 
+}
+.mixin-grad-header(@color-value) when (@header-grad = true) and ( lightness(@color-value) >= 50% ) { 
+	.dark-grad(@color-value); 
+}
+.mixin-grad-header(@color-value) when (@header-grad = true) and ( lightness(@color-value) < 50% ) { 
+	.light-grad(@color-value); 
+}
+.mixin-grad-button(@color-value) when (@button-grad = true) and ( lightness(@color-value) >= 50% ) { 
+	.dark-grad(@color-value); 
+}
+.mixin-grad-button(@color-value) when (@button-grad = true) and ( lightness(@color-value) < 50% ) { 
+	.light-grad(@color-value); 
+}
+.mixin-grid-cell-border() when (@grid-cell-border = false) { 
+	border: none;
+}
+.mixin-grid-right-bg() when (iscolor(@grid-right-side-col)) { 
+	background: @grid-right-side-col;
+}

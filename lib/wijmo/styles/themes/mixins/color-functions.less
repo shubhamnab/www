@@ -1,0 +1,16 @@
+// ---------------------------------------------------------------------------
+//  COLOR FUNCTIONS
+//  These take the base theme colors as defined above and manipulate 
+//  them (lighten, darken, etc...) to be used in the mixins below.  
+// ---------------------------------------------------------------------------
+
+@header-dark: desaturate(darken(@header, 5%), 15%);
+@header-light: desaturate(lighten(@header, 15%), 15%);
+@header-very-light: desaturate(lighten(@header, 50%), 15%);
+@primary-light: desaturate(lighten(@primary, 30%), 30%);
+@primary-dark: desaturate(darken(@primary, 10%), 30%);
+@text-light: lighten(@text, 100%);
+@text-dark: darken(@text, 100%);
+@button-light: lighten(@button, 10%);
+@button-dark: darken(@button, 10%);
+@background-dark: desaturate(darken(@background, 5%), 20%);
